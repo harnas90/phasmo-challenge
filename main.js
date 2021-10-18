@@ -3,6 +3,7 @@ const closeButton = document.querySelector(".close-button");
 // const txt = document.querySelector("span");
 const modal = document.querySelector(".modal");
 const task = document.querySelector(".task");
+const drawAgain = document.querySelector(".draw-again");
 
 
 const challenges = [
@@ -39,18 +40,31 @@ const challenges = [
 "Zakaz biegania",
 ];
 let challenge = "";
+let modalActive = false;
 const drawChallenge = () => {
+    if (modalActive == false){
     index = Math.floor(Math.random() * challenges.length);
     challenge = challenges[index];
     task.textContent = challenge;
     modal.classList.toggle("closed");
     btn.style.display = "none";
+    drawAgain.style.display = "block";
+    modalActive = !modalActive;
+    };
+    if (modalActive){
+        index = Math.floor(Math.random() * challenges.length);
+        challenge = challenges[index];
+        task.textContent = challenge;
+    } 
     console.log("works")
 };
 
 btn.addEventListener('click', drawChallenge);
+drawAgain.addEventListener('click', drawChallenge);
 
 closeButton.addEventListener("click", function() {
     modal.classList.toggle("closed");
     btn.style.display = "block";
+    modalActive = !modalActive;
+    drawAgain.style.display = "none";
   });

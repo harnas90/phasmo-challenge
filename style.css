@@ -45,6 +45,15 @@ button:hover {
   cursor: pointer;
 }
 
+.draw-again {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
 .title {
   margin: 10% auto 25% auto;
   text-align: center;
